@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todoey_flutter/widgets/listViewWidget.dart';
 
 class TasksScreen extends StatefulWidget {
   @override
@@ -119,33 +120,9 @@ class _TasksScreenState extends State<TasksScreen> {
               ),
               child: ListView(
                 children: <Widget>[
-                  ListTile(
-                    title: Text('Flutter meeting at 9 P.M.'),
-                    trailing: Checkbox(
-                      value: false,
-                      onChanged: (newValue) {
-                        //TODO: create the onChanged
-                      },
-                    ),
-                  ),
-                  ListTile(
-                    title: Text('Flutter meeting at 9 P.M.'),
-                    trailing: Checkbox(
-                      value: false,
-                      onChanged: (newValue) {
-                        //TODO: create the onChanged method.
-                      },
-                    ),
-                  ),
-                  ListTile(
-                    title: Text('Flutter meeting at 9 P.M.'),
-                    trailing: Checkbox(
-                      value: false,
-                      onChanged: (newValue) {
-                        //TODO: create the onChanged method.
-                      },
-                    ),
-                  ),
+                  ListViewWidget(),
+                  ListViewWidget(),
+                  ListViewWidget(),
                 ],
               ),
             ),
