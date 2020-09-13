@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todoey_flutter/constrants.dart';
 import 'package:todoey_flutter/widgets/listViewWidget.dart';
 
 class TasksScreen extends StatefulWidget {
@@ -15,13 +16,7 @@ class _TasksScreenState extends State<TasksScreen> {
         right: 30.0,
         left: 30.0,
       ),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
-          topRight: Radius.circular(30.0),
-          topLeft: Radius.circular(30.0),
-        ),
-      ),
+      decoration: kContainerDecoration,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
@@ -29,7 +24,7 @@ class _TasksScreenState extends State<TasksScreen> {
             'Add Task',
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: Colors.lightBlueAccent,
+              color: kPrimaryColor,
               fontSize: 35.0,
               fontWeight: FontWeight.w500,
             ),
@@ -37,7 +32,7 @@ class _TasksScreenState extends State<TasksScreen> {
           TextField(
             autofocus: true,
             textAlign: TextAlign.center,
-            cursorColor: Colors.lightBlueAccent,
+            cursorColor: kPrimaryColor,
             style: TextStyle(
               color: Colors.black,
             ),
@@ -47,8 +42,11 @@ class _TasksScreenState extends State<TasksScreen> {
             height: 10.0,
           ),
           FlatButton(
-            color: Colors.lightBlueAccent,
-            child: Text('Add'),
+            color: kPrimaryColor,
+            child: Text(
+              'Add',
+              style: TextStyle(color: kSecondaryColor),
+            ),
             onPressed: () {},
           ),
         ],
@@ -59,9 +57,9 @@ class _TasksScreenState extends State<TasksScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlueAccent,
+      backgroundColor: kPrimaryColor,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.lightBlueAccent,
+        backgroundColor: kPrimaryColor,
         child: Icon(Icons.add),
         onPressed: () => showModalBottomSheet(
           context: context,
@@ -80,10 +78,10 @@ class _TasksScreenState extends State<TasksScreen> {
               children: <Widget>[
                 CircleAvatar(
                   radius: 30.0,
-                  backgroundColor: Colors.white,
+                  backgroundColor: kSecondaryColor,
                   child: Icon(
                     Icons.list,
-                    color: Colors.lightBlueAccent,
+                    color: kPrimaryColor,
                     size: 30.0,
                   ),
                 ),
@@ -93,7 +91,7 @@ class _TasksScreenState extends State<TasksScreen> {
                 Text(
                   'Todoey',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: kSecondaryColor,
                     fontSize: 50.0,
                     fontWeight: FontWeight.w700,
                   ),
@@ -101,7 +99,7 @@ class _TasksScreenState extends State<TasksScreen> {
                 Text(
                   '12 Tasks',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: kSecondaryColor,
                     fontSize: 20.0,
                   ),
                 )
@@ -111,13 +109,7 @@ class _TasksScreenState extends State<TasksScreen> {
           Expanded(
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 20.0),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(30.0),
-                  topLeft: Radius.circular(30.0),
-                ),
-              ),
+              decoration: kContainerDecoration,
               child: ListView(
                 children: <Widget>[
                   ListViewWidget(),

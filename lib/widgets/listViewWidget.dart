@@ -11,19 +11,20 @@ class _ListViewWidgetState extends State<ListViewWidget> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-        title: Text(
-          'Flutter meeting at 9 P.M.',
-          style: TextStyle(
-              decoration: isChecked ? TextDecoration.lineThrough : null),
-        ),
-        trailing: TaskCheckBox(
-          isChecked: isChecked,
-          onChanged: (newValue) {
-            setState(() {
-              isChecked = newValue;
-            });
-          },
-        ));
+      title: Text(
+        'Flutter meeting at 9 P.M.',
+        style: TextStyle(
+            decoration: isChecked ? TextDecoration.lineThrough : null),
+      ),
+      trailing: TaskCheckBox(
+        isChecked: isChecked,
+        onChanged: (newValue) {
+          setState(() {
+            isChecked = newValue;
+          });
+        },
+      ),
+    );
   }
 }
 
