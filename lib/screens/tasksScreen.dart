@@ -124,7 +124,7 @@ class _TasksScreenState extends State<TasksScreen> {
                     trailing: Checkbox(
                       value: false,
                       onChanged: (newValue) {
-                        //TODO: create the onChanged method.
+                        //TODO: create the onChanged
                       },
                     ),
                   ),
