@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todoey_flutter/models/task.dart';
 
 class ListViewWidget extends StatefulWidget {
   @override
@@ -7,12 +8,17 @@ class ListViewWidget extends StatefulWidget {
 
 class _ListViewWidgetState extends State<ListViewWidget> {
   bool isChecked = false;
+  List<Task> taskList = [
+    Task(name: "Flutter meet"),
+    Task(name: "Flutter UI meet"),
+    Task(name: "Flutter UX meet"),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
-        'Flutter meeting at 9 P.M.',
+        taskList[0].name,
         style: TextStyle(
             decoration: isChecked ? TextDecoration.lineThrough : null),
       ),
