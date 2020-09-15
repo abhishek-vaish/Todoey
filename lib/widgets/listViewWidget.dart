@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todoey_flutter/models/task.dart';
+import 'package:todoey_flutter/widgets/listTileWidget.dart';
 
 class ListViewWidget extends StatefulWidget {
   @override
@@ -8,6 +9,7 @@ class ListViewWidget extends StatefulWidget {
 
 class _ListViewWidgetState extends State<ListViewWidget> {
   bool isChecked = false;
+  Task task = Task();
   List<Task> taskList = [
     Task(name: "Flutter meet"),
     Task(name: "Flutter UI meet"),
@@ -16,35 +18,19 @@ class _ListViewWidgetState extends State<ListViewWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        taskList[0].name,
-        style: TextStyle(
-            decoration: isChecked ? TextDecoration.lineThrough : null),
-      ),
-      trailing: TaskCheckBox(
-        isChecked: isChecked,
-        onChanged: (newValue) {
-          setState(() {
-            isChecked = newValue;
-          });
-        },
-      ),
-    );
-  }
-}
-
-class TaskCheckBox extends StatelessWidget {
-  final bool isChecked;
-  final Function onChanged;
-
-  TaskCheckBox({this.onChanged, this.isChecked});
-
-  @override
-  Widget build(BuildContext context) {
-    return Checkbox(
-      value: isChecked,
-      onChanged: onChanged,
+    return ListView.builder(
+      itemBuilder: (BuildContext context, int index) {
+        return ListTileWidget(
+          taskTile: taskList[index].name,
+          isChecked: taskList[index].isChecked,
+          onChanged: (newValue) {
+            setState(() {
+              taskList[index].revertIsChecked();
+            });
+          },
+        );
+      },
+      itemCount: taskList.length,
     );
   }
 }
