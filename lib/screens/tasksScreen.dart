@@ -66,13 +66,7 @@ class _TasksScreenState extends State<TasksScreen> {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 20.0),
               decoration: kContainerDecoration,
-              child: ListView(
-                children: <Widget>[
-                  ListViewWidget(),
-                  ListViewWidget(),
-                  ListViewWidget(),
-                ],
-              ),
+              child: ListViewWidget(),
             ),
           )
         ],
