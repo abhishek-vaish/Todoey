@@ -1,6 +1,6 @@
-# todoey_flutter
+# Todoey ✅
 
-A new Flutter application.
+Todoey is a light weight application which is Android and iOS supportive.
 
 ## Getting Started
 
