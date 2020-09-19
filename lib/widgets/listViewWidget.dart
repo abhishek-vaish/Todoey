@@ -14,7 +14,7 @@ class ListViewWidget extends StatelessWidget {
                 taskTile: value.listView()[index].name,
                 isChecked: value.listView()[index].isChecked,
                 onChanged: (newValue) {
-                  value.changeCheckedBox();
+                  value.changeCheckedBox(value.listView()[index]);
                 });
           },
           itemCount: value.listCount,

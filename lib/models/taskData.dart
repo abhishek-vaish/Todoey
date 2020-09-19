@@ -24,7 +24,8 @@ class TaskData extends ChangeNotifier {
     notifyListeners();
   }
 
-  void changeCheckedBox() {
-    Task().revertIsChecked();
+  void changeCheckedBox(Task task) {
+    task.revertIsChecked();
+    notifyListeners();
   }
 }

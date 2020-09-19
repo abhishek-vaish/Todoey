@@ -66,9 +66,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   ),
                 ),
                 Text(
-                  '${Provider
-                      .of<TaskData>(context)
-                      .listCount} Tasks',
+                  '${Provider.of<TaskData>(context).listCount} Tasks',
                   style: TextStyle(
                     color: kSecondaryColor,
                     fontSize: 20.0,
