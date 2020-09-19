@@ -1,36 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:todoey_flutter/models/task.dart';
+import 'package:provider/provider.dart';
+import 'package:todoey_flutter/models/taskData.dart';
 import 'package:todoey_flutter/widgets/listTileWidget.dart';
 
-class ListViewWidget extends StatefulWidget {
-  @override
-  _ListViewWidgetState createState() => _ListViewWidgetState();
-}
-
-class _ListViewWidgetState extends State<ListViewWidget> {
-  bool isChecked = false;
-  Task task = Task();
-  List<Task> taskList = [
-    Task(name: "Flutter meet"),
-    Task(name: "Flutter UI meet"),
-    Task(name: "Flutter UX meet"),
-  ];
-
+class ListViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: (BuildContext context, int index) {
-        return ListTileWidget(
-          taskTile: taskList[index].name,
-          isChecked: taskList[index].isChecked,
-          onChanged: (newValue) {
-            setState(() {
-              taskList[index].revertIsChecked();
-            });
+    return Consumer<TaskData>(
+      builder: (context, value, child) {
+        return ListView.builder(
+          itemBuilder: (BuildContext context, int index) {
+            return ListTileWidget(
+                taskTile: value.listView()[index].name,
+                isChecked: value.listView()[index].isChecked,
+                onChanged: (newValue) {
+                  value.changeCheckedBox();
+                });
           },
+          itemCount: value.listCount,
         );
       },
-      itemCount: taskList.length,
     );
   }
 }

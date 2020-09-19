@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todoey_flutter/constrants.dart';
-import 'package:todoey_flutter/widgets/bottomSheetBar.dart';
+import 'package:todoey_flutter/models/taskData.dart';
+import 'package:todoey_flutter/widgets/floatingActionButtonWidget.dart';
 import 'package:todoey_flutter/widgets/listViewWidget.dart';
 
 class TasksScreen extends StatefulWidget {
@@ -16,10 +18,21 @@ class _TasksScreenState extends State<TasksScreen> {
       backgroundColor: kPrimaryColor,
       floatingActionButton: FloatingActionButton(
         backgroundColor: kPrimaryColor,
-        child: Icon(Icons.add),
+        child: Icon(
+          Icons.add,
+          color: kSecondaryColor,
+        ),
         onPressed: () => showModalBottomSheet(
           context: context,
-          builder: bottomSheetBar,
+          isScrollControlled: true,
+          builder: (context) => SingleChildScrollView(
+            child: Container(
+              padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewInsets.bottom,
+              ),
+              child: FloatingActionButtonWidget(),
+            ),
+          ),
           backgroundColor: Color(0xFF757575),
         ),
       ),
@@ -53,7 +66,9 @@ class _TasksScreenState extends State<TasksScreen> {
                   ),
                 ),
                 Text(
-                  '12 Tasks',
+                  '${Provider
+                      .of<TaskData>(context)
+                      .listCount} Tasks',
                   style: TextStyle(
                     color: kSecondaryColor,
                     fontSize: 20.0,
