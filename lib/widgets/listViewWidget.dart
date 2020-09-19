@@ -13,6 +13,9 @@ class ListViewWidget extends StatelessWidget {
             return ListTileWidget(
                 taskTile: value.listView()[index].name,
                 isChecked: value.listView()[index].isChecked,
+                onLongPress: () {
+                  value.deleteTask(value.listView()[index]);
+                },
                 onChanged: (newValue) {
                   value.changeCheckedBox(value.listView()[index]);
                 });

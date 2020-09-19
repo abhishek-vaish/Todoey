@@ -28,4 +28,9 @@ class TaskData extends ChangeNotifier {
     task.revertIsChecked();
     notifyListeners();
   }
+
+  void deleteTask(Task task) {
+    _taskList.remove(task);
+    notifyListeners();
+  }
 }

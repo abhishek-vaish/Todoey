@@ -4,8 +4,10 @@ class ListTileWidget extends StatelessWidget {
   final String taskTile;
   final bool isChecked;
   final Function onChanged;
+  final Function onLongPress;
 
-  ListTileWidget({this.isChecked, this.taskTile, this.onChanged});
+  ListTileWidget(
+      {this.isChecked, this.taskTile, this.onChanged, this.onLongPress});
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +18,7 @@ class ListTileWidget extends StatelessWidget {
           decoration: isChecked ? TextDecoration.lineThrough : null,
         ),
       ),
+      onLongPress: onLongPress,
       trailing: TaskCheckBox(
         isChecked: isChecked,
         onChanged: onChanged,
